@@ -4,7 +4,7 @@ import json
 
 app = FastAPI()
 
-@app.get("/")
+@app.get("/api")
 def root(name: List[str] = Query(...)):
   
   name1, name2 = name[0].strip('"'), name[1].strip('"')
