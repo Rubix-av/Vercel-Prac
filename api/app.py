@@ -11,7 +11,7 @@ def root(name: List[str] = Query(...)):
   
   marks_list = []
   
-  with open("q-vercel-python.json", "r") as f:
+  with open("../q-vercel-python.json", "r") as f:
     data = json.load(f)  
   
   flag = False
