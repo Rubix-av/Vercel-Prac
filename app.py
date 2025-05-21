@@ -16,7 +16,6 @@ app.add_middleware(
 
 @app.get("/api")
 def root(name: List[str] = Query(...)):
-    name1, name2 = name[0].strip('"'), name[1].strip('"')
 
     marks_list = []
 
@@ -26,11 +25,8 @@ def root(name: List[str] = Query(...)):
     flag = False
 
     for details in data:
-        if details["name"] == name1:
-            marks_list.append(details["marks"])
-            flag = True
-
-        if flag == True and details["name"] == name2:
+        for n in name:
+          if details["name"] == n.strip('"'):
             marks_list.append(details["marks"])
 
     return {"marks": marks_list}
