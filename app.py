@@ -24,9 +24,10 @@ def root(name: List[str] = Query(...)):
 
     flag = False
 
-    for details in data:
-        for n in name:
-          if details["name"] == n.strip('"'):
-            marks_list.append(details["marks"])
+    for n in name:
+      for details in data:
+        if details["name"] == n.strip('"'):
+          marks_list.append(details["marks"])
+          break
 
     return {"marks": marks_list}
