@@ -30,4 +30,4 @@ def root(name: List[str] = Query(...)):
           marks_list.append(details["marks"])
           break
 
-    return { "marks": marks_list }
+    return json.dumps({ "marks": marks_list })
