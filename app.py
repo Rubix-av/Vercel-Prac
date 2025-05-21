@@ -5,14 +5,14 @@ import json
 
 app = FastAPI()
 
-# # Enable CORS
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],  # Allow all origins
-#     allow_credentials=True,
-#     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
-#     allow_headers=["*"],  # Allow all headers
-# )
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://exam.sanand.workers.dev"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 @app.get("/api")
 def root(name: List[str] = Query(...)):
