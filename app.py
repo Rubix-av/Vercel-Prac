@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
+from typing import List
 
 app = FastAPI()
 
 @app.get("/")
-def root():
-  return {"message": "welcome to the root route!"}
+def root(name: List[str] = Query(...)):
+  return {"names": name}
